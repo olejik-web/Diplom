@@ -1,0 +1,309 @@
+\textheight = 478pt \textwidth=4.5in \topmargin=0.75in \headsep=0.25in
+\topskip=10pt \footskip=0.35in
+\documentclass[14pt, a4paper]{extbook}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{mathtext,graphicx,indentfirst}
+\usepackage{amsfonts,amssymb,amscd,amsmath,amsthm,wrapfig}
+\usepackage[body={6.6in, 9.2in,left=1in, top=1.2in}]{geometry}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\titleformat*{\section}{\large\centering}
+\captionsetup[sub]{labelformat=empty}
+
+
+\begin{document}
+{\sl УДК}\\ % Номер УДК
+\medskip
+
+%\begin{flushleft} 
+%\copyright~Иванов~И.\,И., 2025 
+%\end{flushleft}  % Авторские права, понадобится на этапе верстки
+
+%\smallskip \noindent  %%Оформление теорем, лемм, замечаний и определений:
+%{\bf Теорема 5.} {\sl Пусть при $h < 1$ одномерное отображение (3) имеет
+%экспоненциально устойчивый цикл (4). Тогда существует такое $\varepsilon_k$,
+%что при $ 0 < \varepsilon \leq \varepsilon_k $ уравнение (2) имеет
+%релаксационный цикл.}
+%\smallskip
+%
+%\noindent{\it Доказательство} %% ...
+%
+%\bigskip
+%{\large\bf Литература} %%Список литературы
+%
+%\begin{enumerate}
+%\item {\it Боголюбов Н.Н., Митропольский Ю.А.}
+%Асимптотические методы в теории нелинейных колебаний. М.: Наука, 1974. %% ...
+%\end{enumerate}
+
+\begin{center}
+{\bf О.\,Д.~Еремичев}\\[0.2cm] %% Автор
+{\Large Устойчивость нулевого состояния равновесия в модельной системе ОДУ} % Название
+\end{center}
+
+\begin{quotation} \small \centering
+Строится конечная нормальная форма системы интегрально-дифференциальных уравнений и по ней исследуется устойчивость нулевого состояния равновесия 
+\end{quotation}
+
+\section*{Постановка задачи} 
+Рассматривается система интегрально-дифференциальных уравнений
+\begin{equation}\label{eq:1}
+\dfrac{du}{dt} = \left(A_0 + \varepsilon A_1\right)u + F_2(u,u) + F_3(u,u,u) + \varepsilon D_0 \dfrac{1}{2\pi} \int_{0}^{2\pi} u(t, x+s) \, ds
+\end{equation}
+
+Здесь \( u = u(t, x) \in \mathbb{R}^2 \), \( t \geq 0 \), \( x \in \mathbb{R} \), \(\varepsilon\) -- малый положительный параметр,  
+\( A_0, A_1, D_0 \) -- \( 2 \times 2 \) матрицы, \( F_2(\cdot, \cdot), F_3(\cdot, \cdot, \cdot) \) -- линейные по каждому аргументу вектор-функции.
+
+Система (1) рассматривается с периодическим краевым условием
+
+\begin{equation}\label{eq:2}
+u(t, x + 2\pi) = u(t, x).
+\end{equation}
+
+Рассмотрим задачу определения устойчивости нулевого состояния равновесия. Для этого воспользуемся следующей теоремой.
+
+\smallskip \noindent
+{\bf Теорема об устойчивости по первому приближению.} {\sl 
+
+$\dot{x}=f(x,\varepsilon)$, $x=x(t)\in \mathbb{R}^n$
+
+$\dot{x_0}=0$
+
+$f(0,\varepsilon)=0$, $x=0$ - состояние равновесия
+
+$f(x,\varepsilon)=f(0,\varepsilon)+\dfrac{df}{dt}(0,\varepsilon)x+...$
+
+$A(\varepsilon)=\dfrac{df}{dt}(0,\varepsilon)$
+
+$\dot{x}=A(\varepsilon)x+...$
+
+$A(\varepsilon): A(\varepsilon)\upsilon=\lambda\upsilon$
+
+$Re\lambda<0$ $\to$ состояние равновесия устойчиво
+
+$Re\lambda>0$ $\to$ состояние равновесия неустойчиво
+}
+\smallskip
+
+Теперь необходимо воспользоваться методом нормальных форм
+
+$\dot{x}=(A_0 + \varepsilon A_1)x+F_2(x,x)+F3(x,x,x)$
+
+$x(t)=\varepsilon \xi(\tau)a+\varepsilon^2x_2(\tau,t)+...$, $\tau=\varepsilon t$
+
+$A_0a=0$
+
+$x_2(\tau,t)$ ограничена
+
+$\varepsilon^1: 0=A_0(\xi a)$
+
+$\varepsilon^2: \dfrac{dx_2}{dt}+\dfrac{d\xi_2}{d\tau}a=A_0x_2+A_1\xi a+F_2(a,a)\xi^2$
+
+$\dot{y}=-A_0^*y$ - сопряженное уравнение
+
+$A_0^*=\overline{A_0}^T$
+
+$y(t)=Ce^{\lambda t}$
+
+$y(t)=Cb$
+
+$-A_0^*b=0: (a,b)=1$
+
+$\left(\dfrac{d\xi}{d\tau}a,b\right)=(\xi A_1+\xi^2 F_2(a,a),b)$
+
+$\dfrac{d\xi}{d\tau}=(A_1a,b)\xi+(F_2(a,a),b)\xi^2$
+
+$\lambda=(A_1a,b)$
+
+$\sigma=(F_2(a,a),b)$
+
+$\dfrac{d\xi}{d\tau}=\lambda\xi+\sigma\xi^2$ - нормальная форма
+
+$\lambda>0,\sigma<0 \to \xi_0=0$ - неустойчиво
+
+$\xi_1=\dfrac{-\lambda}{\delta}$
+
+$x(t)=\varepsilon\xi_i a + O(\varepsilon^2)$
+
+Если $(F2(a,a),b)=0$
+
+$x(t)=\sqrt{\varepsilon}\xi(\tau)a+\varepsilon x_2(t,\tau)+\varepsilon^{\frac{3}{2}}x_3(t,\tau)+...$
+
+$\varepsilon^2: \dfrac{dx_3}{dt}+\dfrac{d\xi}{d\tau}a=A_0x_3+K_0\xi^3$
+
+$\dfrac{d\xi}{d\tau}=\lambda\xi+\delta_1\xi^3, \lambda>0,\delta<0$
+
+$\lambda\xi+\delta_1\xi^3=0, \xi_0=0$ - неустойчивое состояние равновесия
+
+$\xi_{1, 2}=\pm\sqrt{\dfrac{-\lambda}{\delta_1}}$ - устойчивое состояние равновесия
+
+$A_0a=i\omega a$
+
+$x(t)=\sqrt{\varepsilon}(\xi(\tau)e^{i\omega\tau}a+\overline{\xi}(\tau)e^{-i\omega\tau}\overline{a})+\varepsilon x_2(t,\tau)+\varepsilon^{\frac{3}{2}}x_3(t,\tau)+...$
+
+$x2, x3$ - периодические по $t$ с $T=\dfrac{2\pi}{\omega}$
+
+$\dfrac{dx_3}{dt}+\dfrac{d\xi}{d\tau}a=A_0x_3+...$
+
+$\dfrac{d\xi}{d\tau}=\lambda\xi+\delta\xi|\xi|^2, \xi=\xi(\tau)\in\mathbb{C}, |\xi|^2=\xi\overline{\xi}$
+
+$\xi_0=0$ - неустойчивое состояние равновесия
+
+$\xi_{1, 2}\neq 0$ - устойчивое состояние равновесия
+
+\section*{Построение конечной нормальной формы} 
+
+Рассмотрим вопрос об устойчивости нулевого состояния равновесия задачи \eqref{eq:1}, \eqref{eq:2}.  Устойчивость нулевого состояния равновесия определяется собственными значениями набора матриц
+
+\begin{equation}\label{eq:3}
+A_0 + \varepsilon A_1 + \varepsilon D_0 \frac{1}{2\pi} \int_{0}^{2\pi} \exp(iks) \, ds, 
+\quad (k = 0, \pm 1, \pm 2, \ldots).
+\end{equation}
+
+Заметим, что в этом случае при \( k \neq 0 \) матрицы вида \eqref{eq:3} равны матрице \( A_0 + \varepsilon A_1 \). 
+При \( k = 0 \) получим матрицу \( A_0 + \varepsilon (A_1 + D_0) \). Таким образом, устойчивость нулевого 
+состояния равновесия задачи \eqref{eq:1}, \eqref{eq:2} определяется в главном собственными значениями матрицы \( A_0 \).
+
+Заметим также, что при замене переменной $x = x + s$ в интеграле системы \eqref{eq:1} в самой задаче меняется лишь аргумент в подынтегральной функции и соответствующее интегральное слагаемое будет иметь вид $\varepsilon D_0 \frac{1}{2\pi} \int_{0}^{2\pi} u(t, x)  dx$.
+
+Выражение \(\frac{1}{2\pi} \int_{0}^{2\pi} u(t, x)  dx\) является средним функции \(u\) по переменной \(x\) на отрезке \([0, 2\pi]\). В дальнейшем будем считать, что соответствующая замена переменных выполнена, и будем обозначать среднее функции \(u\) как \(M(u)\).
+
+Рассмотрим следующий критический случай: матрица \( A_0 \) имеет пару чисто мнимых собственных значений, т. е. $\lambda=\pm i \omega_0, \omega_0>0$.
+
+Существует собственный вектор $a$, удовлетворяющий равенству $A_0 a=i\omega a$. Введем также в рассмотрение собственный вектор \( b \) 
+транспонированной к \( A_0 \) матрице, отвечающий сопряженному собственному значению, 
+то есть удовлетворяющий равенству \( A_0^T b = -i\omega b \). Будем считать, что \((a,b) = 1\). 
+Тогда решение задачи \eqref{eq:1}, \eqref{eq:2} будем искать в виде ряда
+\[
+u(t,x) = \varepsilon^{1/2} \left( \xi(\tau,x) a \exp(i\omega t) + \overline{\xi}(\tau,x) \overline{a} \exp(-i\omega t) \right) + \varepsilon u_2(t,\tau,x) + \varepsilon^{3/2} u_3(t,\tau,x) + \ldots,
+\]
+
+где \( u_2, u_3 \) -- периодические по \( t \) с периодом \( \frac{2\pi}{\omega} \), \( \tau = \varepsilon t \). 
+Подставив этот ряд в систему \eqref{eq:1}, получим при \( \sqrt{\varepsilon} \) верное равенство
+\[
+\xi i\omega a \exp(i\omega \tau) - \overline{\xi} i\omega \overline{a} \exp(-i\omega \tau) = \xi A_0 a \exp(i\omega \tau) + \overline{\xi} A_0 \overline{a} \exp(-i\omega \tau).
+\]
+
+Проделав ряд математических преобразований получим следующую квазинормальную форму
+
+\begin{equation}\label{eq:4}
+\dfrac{\partial \xi}{\partial \tau} = \lambda\xi +\sigma\xi|\xi|^2 + \gamma M(\xi), \quad \xi(\tau, x + 2\pi) = \xi(\tau, x)
+\end{equation}
+
+где 
+\[
+\lambda=(A_1a,b), \gamma=(D_0a,b)
+\]
+\[
+w_1 = (2i\omega I - A_0)^{-1} F_2(a, a), \quad w_2 = -A_0^{-1} \bigl( F_2(a, \bar{a}) + F_2(\bar{a}, a) \bigr).
+\]
+\[
+\sigma = \bigl( F_3(\bar{a}, a, a) + F_3(a, \bar{a}, a) + F_3(a, a, \bar{a}) + F_2(w_2, a) + F_2(a, w_2) + F_2(w_1, \bar{a}) + F_2(\bar{a}, w_1), b \bigr).
+\]
+
+Будем считать, что $\lambda=\lambda_0+i\lambda_1, \sigma=\sigma_0+i\sigma_1, \gamma=\gamma_0+i\gamma_1$.
+
+\section*{Кусочно-постоянное решение}
+
+Будем искать кусочно-постоянное решение задачи \eqref{eq:4} в виде
+\begin{equation}
+\xi(\tau, x) = \rho(x) e^{i\omega\tau},
+\end{equation}
+где
+\[
+\rho(x) =
+\begin{cases}
+\rho_1 e^{i\varphi_1}, & x \in [0, \alpha), \\
+\rho_2 e^{i\varphi_2}, & x \in [\alpha, 2\pi).
+\end{cases}
+\]
+
+С помощью нормировок и переобозначений можно получить $\varphi_1 = 0$. Будем считать в этом случае $\varphi_2 = \varphi$.
+
+Подставляя $\xi(\tau, x)$ в уравнение~(23) и выделяя вещественную и мнимую части, получаем систему алгебраических уравнений
+
+\begin{equation}\label{eq:6}
+\begin{aligned}
+\beta \rho_1 = \lambda_1 \rho_1 + \sigma_1 \rho_1^3 
++ \gamma_1 \frac{1}{2\pi} \rho_1 \alpha 
++ \gamma_1 \rho_2 (2\pi - \alpha) \frac{1}{2\pi} \cos(\varphi) 
++ \rho_2 (2\pi - \alpha) \frac{1}{2\pi} \gamma_0 \sin(\varphi), \\
+%
+0 = \lambda_0 \rho_1 + \sigma_0 \rho_1^3 
++ \gamma_0 \frac{1}{2\pi} \rho_1 \alpha 
++ \rho_2 (2\pi - \alpha) \frac{1}{2\pi} \gamma_0 \cos(\varphi)
+- \gamma_1 \rho_2 (2\pi - \alpha) \frac{1}{2\pi} \sin(\varphi), \\
+%
+\rho_2 \beta \cos(\varphi) = \lambda_0 \rho_2 \sin(\varphi)
++ \lambda_1 \rho_2 \cos(\varphi)
++ \sigma_0 \rho_2^3 \sin(\varphi)
++ \sigma_1 \rho_2^3 \cos(\varphi)
++ \frac{1}{2\pi} \gamma_1 \rho_1 \alpha \\
++ \frac{1}{2\pi} \gamma_0 \rho_2 (2\pi - \alpha) \sin(\varphi)
+ + \frac{1}{2\pi} \gamma_1 (2\pi - \alpha) \rho_2 \cos(\varphi)\\
+ %
+ -\rho_2 \beta \sin(\varphi) = \lambda_0 \rho_2 \cos(\varphi)
+- \lambda_1 \rho_2 \sin(\varphi)
++ \sigma_0 \rho_2^3 \cos(\varphi)
+- \sigma_1 \rho_2^3 \sin(\varphi)
++ \frac{1}{2\pi} \gamma_0 \rho_1 \alpha \\
++ \frac{1}{2\pi} \gamma_0 \rho_2 (2\pi - \alpha) \cos(\varphi)
+- \frac{1}{2\pi} \gamma_1 (2\pi - \alpha) \rho_2 \sin(\varphi).
+\end{aligned}
+\end{equation}
+
+\section*{Примеры $Re \xi(\tau, x)$}
+
+Для раcчета коэффициентов нормальной формы $\lambda, \sigma, \gamma$ и решения системы алгебраических уравнений \eqref{eq:6} относительно неизвестных $\rho_1, \rho_2, \alpha, \beta$ при $\varphi \in [0, 2\pi]$ были написаны скрипты на Wolfram Mathematica.
+
+%$\lambda=i, \sigma=i, \gamma=-1, \varphi=0, \rho_1=-1, \rho_2=1, \alpha=\pi, \beta=2, \tau=0$
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{image2.eps}
+        \caption{$\tau=0$}
+        \label{fig1:sub1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{image3.eps}
+        \caption{$\tau=100$}
+        \label{fig1:sub2}
+    \end{subfigure}
+    
+    \caption{$\lambda=1, \sigma=-2+18i, \gamma=0, \varphi=\dfrac{\pi}{2}, \rho_1=\dfrac{1}{\sqrt{2}}, \rho_2=-\dfrac{1}{\sqrt{2}}, \alpha=1, \beta=9$}
+    \label{fig1:grid}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{image1.eps}
+        \caption{$\tau=0$}
+        \label{fig2:sub1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{image4.eps}
+        \caption{$\tau=100$}
+        \label{fig2:sub2}
+    \end{subfigure}
+    
+    \caption{$\lambda=i, \sigma=i, \gamma=-1, \varphi=0, \rho_1=-1, \rho_2=1, \alpha=\pi, \beta=2, \tau=0$}
+    \label{fig2:grid}
+\end{figure}
+\begin{flushright}
+\vfill
+{\it Ярославский государственный университет им. П.Г. Демидова}
+\end{flushright}
+
+\end{document}
